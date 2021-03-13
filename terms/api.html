@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Programming Hero Privacy Policy">
+    <link rel="shortcut icon" href="../assets/img/logo/Programming-Hero-app.png" type="img/favicon" />
+    <title>NVideoCalls | API</title>
+    <!-- style CSS -->
+    <link href="../assets/css/privacy.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+    <div class="sec-spacer bg-img2">
+        <div class="container">
+            <div class="tc-breadcrumb tc-contrast">
+                <h1 class="breadcrumb-title"><a href="api.html">NVideoCalls API</a></h1>
+                <ul class="breadcrumb">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="active"><span>Developer API</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container ps">
+        <h1>API</h1>
+        <p>Last modified: Mar 7, 2021</p>
+        <p>Paste the API in html file</p>
+        <h4 class="sub_title">Copy the below api</h4>
+        <textarea readonly="" cols="100" rows="50">
+            <html>
+    <head>
+        <title>NVideoCalls Web</title>
+        <link rel="shortcut icon" type="image/x-icon" href="">
+        <script src="https://meet.jit.si/external_api.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+}
+html, body{
+	overflow: hidden;
+}
+ul{
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+li{
+	display: inline-block;
+	margin: 10px;
+}
+.download{
+	width: 200px;
+	height: 75px;
+	background: #000;
+	float: left;
+	border-radius: 4px;
+	position: relative;
+	color: #fff;
+	cursor: pointer;
+	border: 1px solid #fff;
+}
+.download .fa{
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 15%;
+	transform: translate(-50%, -50%);
+}
+.p1, .p2{
+	position: absolute;
+	left: 70px;
+}
+.p1{
+	top: 20px;
+	font-size: 12px;
+}
+.p2{
+	top: 35px;
+	font-size: 16px;
+}
+.download:hover{
+	filter: invert(100%);
+}
+.share button{
+    border: 1px solid greenyellow;
+  background-color: greenyellow;
+  margin-top: 15px;
+  margin-left: 15px;
+  color: white;
+  border-radius: 20px;
+  padding: 30px;
+}
+.share button a{
+    text-decoration: none;
+  font-size: 25px;
+  color: black;
+}
+.share button .fa-download{
+    color: black;
+  margin-right: 0px;
+  size: 50px;
+}
+@media all and (max-width: 500px){
+    *{
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+}
+html, body{
+	overflow: hidden;
+}
+ul{
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+li{
+	display: inline-block;
+	margin: 10px;
+}
+.download{
+	width: 200px;
+	height: 75px;
+	background: #000;
+	float: left;
+	border-radius: 4px;
+	position: relative;
+	color: #fff;
+	cursor: pointer;
+	border: 1px solid #fff;
+}
+.download .fa{
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 15%;
+	transform: translate(-50%, -50%);
+}
+.p1, .p2{
+	position: absolute;
+	left: 70px;
+}
+.p1{
+	top: 20px;
+	font-size: 12px;
+}
+.p2{
+	top: 35px;
+	font-size: 16px;
+}
+.download:hover{
+	filter: invert(100%);
+}
+.share button{
+    border: 1px solid greenyellow;
+  background-color: greenyellow;
+  margin-top: 15px;
+  margin-left: 15px;
+  color: white;
+  border-radius: 10px;
+  padding: 30px;
+}
+.share button a{
+    text-decoration: none;
+  font-size: 25px;
+  color: black;
+}
+.share button .fa-download{
+    color: black;
+  margin-right: 0px;
+  size: 50px;
+}
+}
+            #start{
+                color: #000000;
+                width: 100;
+                height: 50px;
+                margin-left: 700px;
+            }
+        </style>
+        <button id="start" type="start">Create Meeting</button>
+        <div id="jitsi-container"></div>
+        <script>
+            var button = document.querySelector('#start');
+            var container = document.querySelector('#jitsi-container');
+            var api = null;
+
+            button.addEventListener('click', () => {
+                var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                var stringLength = 30;
+                function pickRandom () {
+                    return possible[Math.floor() * possible.length];
+                }
+                var randomString = Array.apply(null,Array(stringLength)).map (pickRandom).join('');
+
+                var domain = "meet.jit.si";
+                var options = {
+                    "roomName": randomString,
+                    "parentNode": container,
+                    "width": 1375,
+                    "height": 650,
+                };
+                api = new JitsiMeetExternalAPI(domain, options);
+             });
+        </script>
+	    <script data-ad-client="ca-pub-3808532177695973" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <div class="share">
+        <button><a href="https://drive.google.com/uc?id=1_pEfAJzHXt4Ov4QSVxJxfYKKopkUFCsf&export=download"><i class="fa fa-download">Download App for Android</i></a></button>
+        </div>
+    </body>
+</html>
+
+        </textarea>
+        <ul>
+            <li>
+                <p><a href="docs.html">Having Trouble using API?</a></p>
+            </li>
+        </ul>
+
+        <p><span id="docs-internal-guid-61cd418b-7fff-8409-65cf-8ba54b104e76"><br /><br /></p>
+    </div>
+
+
+</body>
+
+</html>
